@@ -10,7 +10,22 @@ CREATE TABLE users (
 );
 
 CREATE TABLE accounts (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  account_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   monthly_income INTEGER NOT NULL,
-  monthly_expenses INTEGER NOT NULL
+  housing INTEGER NOT NULL,
+  tranportation INTEGER NOT NULL,
+  groceries INTEGER NOT NULL,
+  insurance INTEGER NOT NULL,
+  healthcare INTEGER NOT NULL,
+  utilities INTEGER NOT NULL,
+  miscellaneous INTEGER NOT NULL,
+  savings INTEGER NOT NULL
+);
+
+CREATE TABLE tracks (
+  tracks_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cc_balance INTEGER NOT NULL,
+  interest INTEGER NOT NULL,
+  monthly_payment INTEGER NOT NULL,
+  months_until_payoff INTEGER NOT NULL,
 );
