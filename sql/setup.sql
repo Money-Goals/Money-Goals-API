@@ -1,6 +1,6 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS cc;
 
@@ -16,7 +16,7 @@ CREATE TABLE accounts (
   account_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   monthly_income INTEGER NOT NULL,
   housing INTEGER NOT NULL,
-  tranportation INTEGER NOT NULL,
+  transportation INTEGER NOT NULL,
   groceries INTEGER NOT NULL,
   insurance INTEGER NOT NULL,
   healthcare INTEGER NOT NULL,
