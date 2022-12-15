@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS cc;
-
+DROP TABLE IF EXISTS investments;
 
 
 CREATE TABLE users (
@@ -33,6 +33,15 @@ CREATE TABLE cc (
   interest INTEGER NOT NULL,
   monthly_payment INTEGER NOT NULL,
   months_until_payoff INTEGER NOT NULL,
+  user_id BIGINT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE investments (
+  investments_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  age INTEGER NOT NULL,
+  retirement_age INTEGER NOT NULL,
+  retirement_account_balance INTEGER NOT NULL,
   user_id BIGINT,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
