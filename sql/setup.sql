@@ -3,8 +3,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS cc;
-
-
+DROP TABLE IF EXISTS savings;
 
 CREATE TABLE users (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -33,6 +32,13 @@ CREATE TABLE cc (
   interest INTEGER NOT NULL,
   monthly_payment INTEGER NOT NULL,
   months_until_payoff INTEGER NOT NULL,
+  user_id BIGINT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE savings (
+  savings_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  savings_goal INTEGER NOT NULL,
   user_id BIGINT,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
